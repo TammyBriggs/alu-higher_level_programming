@@ -10,6 +10,9 @@ This module is composed by a class that defines a Rectangle
 class Rectangle:
     """ Class that defines a rectangle """
 
+    number_of_instances = 0
+    print_symbol = "#"
+
     def __init__(self, width=0, height=0):
         """ Method that initializes the instance
 
@@ -22,6 +25,7 @@ class Rectangle:
 
         self.width = width
         self.height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -118,6 +122,7 @@ class Rectangle:
         Returns:
             str of the rectangle
 
+
         """
 
         rectangle = ""
@@ -126,7 +131,7 @@ class Rectangle:
             return rectangle
 
         for i in range(self.height):
-            rectangle += ("#" * self.width) + "\n"
+            rectangle += (str(self.print_symbol) * self.width) + "\n"
 
         return rectangle[:-1]
 
@@ -146,4 +151,49 @@ class Rectangle:
 
         """
 
+        Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        """ Method that returns the bigger Rectangle
+
+        Args:
+            rect_1: Rectangle 1
+            rect_2: Rectangle 2
+
+        Raises:
+            TypeError: when some argument passed is not
+            an instance of the Rectangle class
+
+        Returns:
+            The bigger Rectangle
+
+
+        """
+
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance")
+
+        if rect_1.area() >= rect_2.area():
+            return rect_1
+        else:
+            return rect_2
+
+    @classmethod
+    def square(cls, size=0):
+        """ Method that returns a new instance of Rectangle class
+
+        Args:
+            cls: rectangle class
+            size: rectangle width and rectangle height
+
+        Returns:
+            a new instance of Rectangle class
+
+
+        """
+
+        return cls(size, size)
