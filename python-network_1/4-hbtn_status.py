@@ -2,12 +2,8 @@
 """Fetches URL status and displays response"""
 import requests
 
-url = "https://alu-intranet.hbtn.io/status"
-if url.startswith('https://'):
-    url = "https://alu-intranet.hbtn.io/status"
-
 if __name__ == "__main__":
-    resp = requests.get(url)
+    r = requests.get("https://alu-intranet.hbtn.io/status")
     print("Body response:")
-    print("\t- type: {}".format(type(resp.text)))
-    print("\t- content: {}".format(resp.text))
+    print("\t- type: {}".format(type(r.text)))
+    print("\t- content: {}".format(r.text))
