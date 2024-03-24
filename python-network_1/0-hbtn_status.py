@@ -1,5 +1,4 @@
-#!/usr/bin/python3
-"""This script fetches "https://alu-intranet.hbtn.io/status
+s script fetches "https://alu-intranet.hbtn.io/status
    have to use urlib module/library"""
 
 if __name__ == "__main__":

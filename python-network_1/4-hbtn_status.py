@@ -1,5 +1,4 @@
-#!/usr/bin/python3
-"""Fetches URL status and displays response"""
+ URL status and displays response"""
 import requests
 
 if __name__ == "__main__":
