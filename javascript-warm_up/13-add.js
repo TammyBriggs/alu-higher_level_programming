@@ -1,5 +1,10 @@
 #!/usr/bin/node
+// function adds two integers together.
 function add (a, b) {
   return a + b;
 }
-module.exports = { add: add };
+
+// This is how to export module in JavaScript
+module.exports = {
+  add
+};
